@@ -1,0 +1,574 @@
+:: StoryTitle
+The Kindness Tour
+
+
+:: StoryData
+{
+	"ifid": "9B9591F1-BD8E-4836-9534-14A0DD3CBAB0",
+	"format": "SugarCube",
+	"format-version": "2.36.1",
+	"start": "KT-1",
+	"zoom": 1
+}
+
+
+:: Story Stylesheet [stylesheet]
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&display=swap");
+
+/* GENERICS */
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; /* Mostly equivalates to 10px but allows users accessibility zoom settings to work*/
+  /* font-size: 10px; */
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  font-size: 10px;
+  margin: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* Try to keep your margins going in one direction to avoid margin collapase or grounding. I switch all the top margins off to avoid this issue. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+dl,
+dt,
+dd,
+blockquote,
+address,
+article,
+aside,
+details,
+dialogue,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+header,
+hr,
+main,
+nav,
+pre,
+section,
+table,
+p {
+  margin-top: 0;
+  margin-block-start: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  /* You MUST make sure that links stand out from nomal text though...*/
+}
+
+
+img {
+  /* This means that it can be less than 100% of the width of its parent IF the image is INTRINSICALLY smaller */
+  max-width: 100%;
+
+  height: auto;
+  /* 'auto' is the initial value for height BUT for images (and other elements which have an intrinic height) that is not the case. To make an image responsive you set one dimension (usually width) to [max-]width: 100%; and the other to 'auto' to ensure it keeps aspect ratio. 'auto' basically tells the browser to decide. */
+  vertical-align: middle;
+  /* minor vertical centering. Works for images IF there is a baseline (i.e. they are displayed inline or inline-block) */
+}
+
+/* Because we us <ul>s for lists that we don't always want bulletted. */
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* To make actual bulletted lists */
+ul.typographic {
+  list-style: initial;
+  padding-inline-start: 20px;
+}
+
+/* stops icons being the target of JS click events */
+a.btn *,
+button * {
+  pointer-events: null;
+}
+
+/* For 'accessibility text'. If your button only has an image inside it that isn't good for accessibility. Put a span inside there and give it this class and put some descriptive text for what the button does into the span. */
+
+.sr-only {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+  -webkit-clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+.sr-only-focusable:active,
+.sr-only-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip: auto;
+  clip-path: auto;
+  -webkit-clip-path: auto;
+  white-space: normal;
+}
+
+/* GET RID OF TWINE STYLES */
+#story{
+  margin:0
+}
+
+#passages {
+	max-width: 100%;
+
+}
+
+#story a.link-external:after {
+	content: "";
+}
+
+button{
+    background-color: transparent;
+    border: #fff 1px solid;
+    border-radius: 3px;
+}
+
+button:hover{
+	background-color:#ea9e25;
+	border: #fff 1px solid;
+	color: #fff;
+}
+
+a {
+  color:#ea9e25;;
+}
+
+a:active {
+  background-color: #ea9e25;;
+}
+
+a:hover {
+  color: #fff;
+}
+
+#story a.link-external:after {
+	content: "";
+}
+
+#story {
+	margin: 0
+}
+
+/* GENERAL STYLES */
+body{
+  font-size: 1.8rem;
+  font-weight: 600;
+  font-family: "Space Grotesk";
+  color:#fff;
+  /* color:#000; */
+  overflow:scroll;
+  background:#188081;
+  /* padding: 1.5rem */
+  display:flex;
+  flex-direction: column
+}
+
+header{
+  display:flex;
+  justify-content: flex-end;
+  align-items: center;
+    padding: 2rem
+}
+main{
+   padding: 2rem;
+   margin-block-end: 10rem
+}
+
+input[type=text]{
+  border: 1px solid #fff
+}
+/* FOOTER  */
+
+footer{
+   display:flex;
+  justify-content: space-between;
+align-items: end;
+  position:fixed;
+  bottom: 0;
+  padding: 2rem;
+  width: 100%;
+background: #188081;
+}
+
+nav{
+  display:flex;
+    justify-content: space-between;
+}
+
+.nav-wrapper{
+display:flex;
+  flex-direction:column;
+align-items: flex-start
+}
+
+.nav-wrapper:last-child{
+align-items: flex-end
+}
+
+.nav-item{
+  margin-block-end: 0.5rem;
+  width:100%;
+  display:flex
+}
+
+.nav-item.replay, .nav-item.end{
+justify-content: center
+}
+.nav-item.replay, .nav-item.forward{
+justify-content: end
+}
+
+.nav-item.replay, .nav-item.back{
+justify-content: start
+}
+
+.nav-item.forward > button, 
+.nav-item.back > button{
+  font-size:2rem
+}
+footer > button:first-child,  {
+  font-size:2rem
+}
+
+.nav-item > button{
+ font-size: 1.3rem
+}
+
+.menu-wrapper{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.menu-wrapper > button{
+margin-inline-end: 10px;
+margin-block-end: 10px
+}
+
+
+textarea{
+  min-width: 60vw
+}
+
+.wordcontainer{
+  display:flex;
+  flex-direction: row;
+}
+
+.letter-item > input[type=text]{
+    min-width: 2em;
+  	max-width: 2em;
+  	margin-inline-end:10px;
+}
+
+.letter-item > .correct-letter{
+  min-width: 2em;
+  	max-width: 2em;
+  	margin-inline-end:10px;
+}
+
+
+
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+
+/* MAP */
+	.map{
+width: 100%;
+    height: 60vh;
+    border: 0;
+    margin: auto;
+    }
+
+
+.directions-card {
+    display: none!important
+}
+
+@media screen and (min-width: 450px) {
+.map{
+	max-width:60vw;
+	height:50vh;
+	border:0
+}
+}
+
+/* SPECIFICS */
+
+.dropdown-wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.wrong {
+  color:#f6cbc0;
+}
+
+.question{
+  border: 1px solid #fff;
+    padding: 10px;
+}
+
+input[type=text], select{
+  border: 1px solid #fff
+}
+
+input[type=text]{
+  min-width: 60%
+}
+
+h2.title{
+  font-size:2.5rem
+}
+
+
+:: Story JavaScript [script]
+$('#ui-bar').remove();
+$(document.head).find('#style-ui-bar').remove();
+// TYPEWRITER FN
+!function() {
+    postrender.typewriter = function (b) {
+        if (this.tags) {
+            var r = new RegExp("t8n.typewriter.([0-9]+)(?:[^0-9]|$)","g");
+            var t = r.exec(this.tags.toString());
+            if (t) {
+                typeout(b, t[1]+0);
+            }
+        }
+        return b;
+    };
+    var typeout = function(c,t) {
+        var Furl = function(current) {
+            this.n = current;
+            this.out = false;
+            this.data = current.nodeValue;
+            current.nodeValue = "";
+            this.kids = [];
+            var cn = current.childNodes;
+            if (current.style && current.style.display=="none") {
+                return;
+            }
+            while (cn.length>0) {
+                var f = new Furl(cn[0]);
+                current.removeChild(cn[0]);
+                f.out = true;this.kids.push(f);
+            }
+        };
+        var nodes = new Furl(c);
+        var unfurl = function(furled,d) {
+            var n = furled.n;
+            if (furled.out) {
+                d.appendChild(n);
+                furled.out = false;
+            }
+            if (furled.data) {
+                n.nodeValue += furled.data[0];
+                furled.data = furled.data.slice(1);
+                return true;
+            }
+            for (var j=0; j<furled.kids.length; j++) {
+                var ret = unfurl(furled.kids[j],n);
+                if (ret) {
+                    return true;
+                }
+            }
+            return false;
+        };
+        var title = passage();
+        var intr = setInterval (
+            function() {
+                if (passage() == title && unfurl(nodes,null)) {
+                    return;
+                }
+                clearInterval(intr);
+            }
+        ,t);
+    };
+}();
+
+
+:: KT-1 {"position":"300,100","size":"100,100"}
+<main>
+
+THE KINDNESS TOUR
+
+<<button ">">>
+  <<goto "KT-2">>
+<</button>>
+
+</main>
+
+
+:: KT-2 {"position":"300,225","size":"100,100"}
+<<audio ":all" stop>><<audio "Tour1" play>>
+<main>
+
+
+Hello reception. ​
+We are Year 5​
+We are excited for you to go into Year 1 next year. ​
+Next year we'll be Year 6. ​
+The big kids​
+The old ones.​
+The experienced ones
+
+<<timed 19s>><<goto "KT-3">><</timed>>
+
+</main>
+
+
+:: KT-3 {"position":"300,350","size":"100,100"}
+<<audio ":all" stop>><<audio "Tour2" play>>
+
+<main>
+We remember what it was like to go into Year 1​
+It can feel different​
+You don't need to be scared​
+This school is a team. ​
+And we want to help you feel excited. 
+</main>
+
+<<timed 12s>><<goto "KT-4">><</timed>>
+
+
+:: StoryInit {"position":"0,100","size":"100,100"}
+<<cacheaudio "Tour1" "https://www.dropbox.com/s/cfmhuk9iyxrz22v/Tour1.mp3?dl=1">>
+<<cacheaudio "Tour2" "https://www.dropbox.com/s/9job0h16t5mziuc/Tour2.mp3?dl=1">>
+
+<<cacheaudio "Tour3" "https://www.dropbox.com/s/pdzzka56kzpvbx4/Tour3.mp3?dl=1">>
+<<cacheaudio "Tour4" "https://www.dropbox.com/s/nkgymcan3jenua1/Tour4.mp3?dl=1">>
+<<cacheaudio "Tour5" "https://www.dropbox.com/s/bqtraps7ghi59j4/Tour5.mp3?dl=1">>
+
+
+<<waitforaudio>>
+
+
+:: KT-4 {"position":"300,475","size":"100,100"}
+<<audio ":all" stop>><<audio "Tour3" play>>
+
+<main>
+So, we have made a tour for you. ​
+A kindness tour. ​
+Hosted by us​
+For you​
+We are the Tour Guides. ​
+​
+</main>
+
+<<timed 11s>><<goto "KT-5">><</timed>>
+
+
+:: KT-5 {"position":"300,600","size":"100,100"}
+<<audio ":all" stop>><<audio "Tour4" play>>
+
+<main>
+<div class="textholder">
+We're going to go to 3 places ​
+But first let's get to know you
+</div>
+</main>
+
+
+<<timed 5s>>
+	<<replace ".textholder">>
+    Form up Tour Guides!
+    <</replace>>
+<</timed>>
+<<button ">">><<goto "KT-6">><</button>>
+
+
+:: KT-6 {"position":"300,725","size":"100,100"}
+<<audio ":all" stop>>
+
+<main>
+TEAMS PREPARE
+​
+What is your name?​
+
+What is your favourite colour?​
+
+What is your favourite game?​
+
+How do you feel about going to Year 1?​
+</main>
+
+<<button ">">><<goto "KT-7">><</button>>
+
+
+:: KT-7 {"position":"300,850","size":"100,100"}
+<<audio ":all" stop>>
+
+<main>
+GET READY TO GO ON TOUR​
+</main>
+
+<<button "WHEN THE TOUR IS COMPLETE CLICK HERE">><<goto "KT-8">><</button>>
+
+
+:: KT-8 {"position":"300,975","size":"100,100"}
+<<audio ":all" stop>><<audio "Tour5" play>>
+
+<main>
+THIS IS THE END OF OUR TOUR TOGETHER RECEPTION​
+
+BUT IT ISN’T GOODBYE​
+
+BECAUSE WE’LL SEE YOU NEXT YEAR​
+
+WHEN YOU’LL BE IN YEAR 1 AND WE’LL BE IN YEAR 6​
+
+WE HOPE YOU ENJOYED THE TOUR​
+
+REMEMBER YOU CAN ALWAYS SAY HELLO.​
+
+UNTIL NEXT TIME
+</main>
+
+
