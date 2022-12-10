@@ -513,6 +513,7 @@ We are the Tour Guides. ​
 We're going to go to 3 places ​
 But first let's get to know you
 </div>
+<<button ">">><<goto "KT-6">><</button>>
 </main>
 
 
@@ -521,7 +522,6 @@ But first let's get to know you
     Form up Tour Guides!
     <</replace>>
 <</timed>>
-<<button ">">><<goto "KT-6">><</button>>
 
 
 :: KT-6 {"position":"300,725","size":"100,100"}
@@ -537,9 +537,9 @@ What is your favourite colour?​
 What is your favourite game?​
 
 How do you feel about going to Year 1?​
-</main>
 
 <<button ">">><<goto "KT-7">><</button>>
+</main>
 
 
 :: KT-7 {"position":"300,850","size":"100,100"}
@@ -547,9 +547,9 @@ How do you feel about going to Year 1?​
 
 <main>
 GET READY TO GO ON TOUR​
-</main>
 
 <<button "WHEN THE TOUR IS COMPLETE CLICK HERE">><<goto "KT-8">><</button>>
+</main>
 
 
 :: KT-8 {"position":"300,975","size":"100,100"}
