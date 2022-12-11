@@ -313,6 +313,10 @@ font-size: 6rem;
 word-spacing: 1rem;
 }
 
+.large{
+font-size: 13rem;
+
+}
 
 
 
@@ -381,8 +385,7 @@ $(document.head).find('#style-ui-bar').remove();
     };
 }();</script><tw-passagedata pid="1" name="KT-1" tags="" position="300,100" size="100,100">&lt;main class=&quot;flex-center-container&quot;&gt;
 
-&lt;h1&gt;THE KINDNESS TOUR&lt;/h1&gt;
-
+&lt;h1 class=&quot;large&quot;&gt;THE KINDNESS TOUR&lt;/h1&gt;
 &lt;&lt;button &quot;&gt;&quot;&gt;&gt;
   &lt;&lt;goto &quot;KT-2&quot;&gt;&gt;
 &lt;&lt;/button&gt;&gt;
@@ -446,7 +449,9 @@ How do you feel about going to Year 1?
 </tw-passagedata><tw-passagedata pid="8" name="KT-7" tags="" position="300,850" size="100,100">&lt;&lt;audio &quot;:all&quot; stop&gt;&gt;&lt;main class=&quot;flex-center-container&quot;&gt;
 &lt;h1&gt;GET READY TO GO ON TOUR&lt;/h1&gt;
 
+&lt;&lt;timed 300s&gt;&gt;
 &lt;&lt;button &quot;WHEN THE TOUR IS COMPLETE CLICK HERE&quot;&gt;&gt;&lt;&lt;goto &quot;KT-8&quot;&gt;&gt;&lt;&lt;/button&gt;&gt;
+&lt;&lt;/timed&gt;&gt;
 &lt;/main&gt;
 
 </tw-passagedata><tw-passagedata pid="9" name="KT-8" tags="" position="300,975" size="100,100">&lt;&lt;audio &quot;:all&quot; stop&gt;&gt;&lt;&lt;audio &quot;Tour5&quot; play&gt;&gt;&lt;main class=&quot;flex-center-container spaced&quot;&gt;

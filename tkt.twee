@@ -228,6 +228,11 @@ font-size: 6rem;
 word-spacing: 1rem;
 }
 
+.large{
+font-size: 13rem;
+
+}
+
 
 :: Story JavaScript [script]
 $('#ui-bar').remove();
@@ -297,8 +302,7 @@ $(document.head).find('#style-ui-bar').remove();
 :: KT-1 {"position":"300,100","size":"100,100"}
 <main class="flex-center-container">
 
-<h1>THE KINDNESS TOUR</h1>
-
+<h1 class="large">THE KINDNESS TOUR</h1>
 <<button ">">>
   <<goto "KT-2">>
 <</button>>
@@ -386,7 +390,9 @@ How do you feel about going to Year 1?
 <<audio ":all" stop>><main class="flex-center-container">
 <h1>GET READY TO GO ON TOUR</h1>
 
+<<timed 300s>>
 <<button "WHEN THE TOUR IS COMPLETE CLICK HERE">><<goto "KT-8">><</button>>
+<</timed>>
 </main>
 
 
