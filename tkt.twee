@@ -13,7 +13,7 @@ The Kindness Tour
 
 
 :: Story Stylesheet [stylesheet]
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
 
 /* GENERICS */
 html {
@@ -187,185 +187,45 @@ a:hover {
 
 /* GENERAL STYLES */
 body{
-  font-size: 1.8rem;
+  font-size: 5rem;
   font-weight: 600;
-  font-family: "Space Grotesk";
+  font-family: 'Pangolin', cursive;
+  
   color:#fff;
   /* color:#000; */
   overflow:scroll;
-  background:#188081;
+  background:#507ac4;
   /* padding: 1.5rem */
   display:flex;
   flex-direction: column
 }
 
-header{
-  display:flex;
-  justify-content: flex-end;
-  align-items: center;
-    padding: 2rem
-}
 main{
    padding: 2rem;
-   margin-block-end: 10rem
+   margin-block-end: 10rem;
+   text-align: center;
 }
 
-input[type=text]{
-  border: 1px solid #fff
-}
-/* FOOTER  */
-
-footer{
-   display:flex;
-  justify-content: space-between;
-align-items: end;
-  position:fixed;
-  bottom: 0;
-  padding: 2rem;
-  width: 100%;
-background: #188081;
+h1{
+font-size: 6rem;
+  font-weight:bold;
+    text-decoration: underline;
 }
 
-nav{
+.flex-center-container{
   display:flex;
-    justify-content: space-between;
-}
-
-.nav-wrapper{
-display:flex;
+  justify-content:center;
+  align-items:center;
   flex-direction:column;
-align-items: flex-start
 }
-
-.nav-wrapper:last-child{
-align-items: flex-end
-}
-
-.nav-item{
-  margin-block-end: 0.5rem;
-  width:100%;
-  display:flex
-}
-
-.nav-item.replay, .nav-item.end{
-justify-content: center
-}
-.nav-item.replay, .nav-item.forward{
-justify-content: end
-}
-
-.nav-item.replay, .nav-item.back{
-justify-content: start
-}
-
-.nav-item.forward > button, 
-.nav-item.back > button{
-  font-size:2rem
-}
-footer > button:first-child,  {
-  font-size:2rem
-}
-
-.nav-item > button{
- font-size: 1.3rem
-}
-
-.menu-wrapper{
-  display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.menu-wrapper > button{
-margin-inline-end: 10px;
-margin-block-end: 10px
-}
-
-
-textarea{
-  min-width: 60vw
-}
-
-.wordcontainer{
+.flex-rows-align{
   display:flex;
-  flex-direction: row;
+  justify-content:center;
+  align-items:center;
 }
 
-.letter-item > input[type=text]{
-    min-width: 2em;
-  	max-width: 2em;
-  	margin-inline-end:10px;
-}
-
-.letter-item > .correct-letter{
-  min-width: 2em;
-  	max-width: 2em;
-  	margin-inline-end:10px;
-}
-
-
-
-
-@keyframes spin {
-    from {
-        transform:rotate(0deg);
-    }
-    to {
-        transform:rotate(360deg);
-    }
-}
-
-
-/* MAP */
-	.map{
-width: 100%;
-    height: 60vh;
-    border: 0;
-    margin: auto;
-    }
-
-
-.directions-card {
-    display: none!important
-}
-
-@media screen and (min-width: 450px) {
-.map{
-	max-width:60vw;
-	height:50vh;
-	border:0
-}
-}
-
-/* SPECIFICS */
-
-.dropdown-wrapper{
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    justify-content: space-between;
-}
-
-.wrong {
-  color:#f6cbc0;
-}
-
-.question{
-  border: 1px solid #fff;
-    padding: 10px;
-}
-
-input[type=text], select{
-  border: 1px solid #fff
-}
-
-input[type=text]{
-  min-width: 60%
-}
-
-h2.title{
-  font-size:2.5rem
+.spaced{
+word-spacing: 1rem;
 }
 
 
@@ -435,9 +295,9 @@ $(document.head).find('#style-ui-bar').remove();
 
 
 :: KT-1 {"position":"300,100","size":"100,100"}
-<main>
+<main class="flex-center-container">
 
-THE KINDNESS TOUR
+<h1>THE KINDNESS TOUR</h1>
 
 <<button ">">>
   <<goto "KT-2">>
@@ -447,127 +307,97 @@ THE KINDNESS TOUR
 
 
 :: KT-2 {"position":"300,225","size":"100,100"}
-<<audio ":all" stop>><<audio "Tour1" play>>
-<main>
-
-
-Hello reception. ​
-We are Year 5​
-We are excited for you to go into Year 1 next year. ​
-Next year we'll be Year 6. ​
-The big kids​
-The old ones.​
+<<audio ":all" stop>><<audio "Tour1" play>><main class="flex-center-container">Hello reception. 
+We are Year 5
+We are excited for you to go into Year 1 next year. 
+Next year we'll be Year 6. 
+The big kids
+The old ones
 The experienced ones
-
 <<timed 19s>><<goto "KT-3">><</timed>>
 
 </main>
 
 
 :: KT-3 {"position":"300,350","size":"100,100"}
-<<audio ":all" stop>><<audio "Tour2" play>>
-
-<main>
-We remember what it was like to go into Year 1​
-It can feel different​
-You don't need to be scared​
-This school is a team. ​
+<<audio ":all" stop>><<audio "Tour2" play>><main class="flex-center-container">
+We remember what it was like to go into Year 1
+It can feel different
+You don't need to be scared
+This school is a team. 
 And we want to help you feel excited. 
 </main>
 
 <<timed 12s>><<goto "KT-4">><</timed>>
 
 
-:: StoryInit {"position":"0,100","size":"100,100"}
-<<cacheaudio "Tour1" "https://www.dropbox.com/s/cfmhuk9iyxrz22v/Tour1.mp3?dl=1">>
-<<cacheaudio "Tour2" "https://www.dropbox.com/s/9job0h16t5mziuc/Tour2.mp3?dl=1">>
-
-<<cacheaudio "Tour3" "https://www.dropbox.com/s/pdzzka56kzpvbx4/Tour3.mp3?dl=1">>
-<<cacheaudio "Tour4" "https://www.dropbox.com/s/nkgymcan3jenua1/Tour4.mp3?dl=1">>
-<<cacheaudio "Tour5" "https://www.dropbox.com/s/bqtraps7ghi59j4/Tour5.mp3?dl=1">>
+:: StoryInit {"position":"100,100","size":"100,100"}
+<<cacheaudio "Tour1" "https://www.youhavefoundconey.net/gtg/Tour/Tour1.mp3">>
+<<cacheaudio "Tour2" "https://www.youhavefoundconey.net/gtg/Tour/Tour2.mp3">>
+<<cacheaudio "Tour3" "https://www.youhavefoundconey.net/gtg/Tour/Tour3.mp3">>
+<<cacheaudio "Tour4" "https://www.youhavefoundconey.net/gtg/Tour/Tour4.mp3">>
+<<cacheaudio "Tour5" "https://www.youhavefoundconey.net/gtg/Tour/Tour5.mp3">>
 
 
 <<waitforaudio>>
 
 
 :: KT-4 {"position":"300,475","size":"100,100"}
-<<audio ":all" stop>><<audio "Tour3" play>>
+<<audio ":all" stop>><<audio "Tour3" play>><main class="flex-center-container">
+So, we have made a tour for you. 
+A kindness tour. 
+Hosted by us
+For you
+We are the Tour Guides. 
 
-<main>
-So, we have made a tour for you. ​
-A kindness tour. ​
-Hosted by us​
-For you​
-We are the Tour Guides. ​
-​
 </main>
 
 <<timed 11s>><<goto "KT-5">><</timed>>
 
 
 :: KT-5 {"position":"300,600","size":"100,100"}
-<<audio ":all" stop>><<audio "Tour4" play>>
-
-<main>
-<div class="textholder">
-We're going to go to 3 places ​
+<<audio ":all" stop>><<audio "Tour4" play>><main class="textholder flex-center-container">
+We're going to go to 3 places
 But first let's get to know you
-</div>
-<<button ">">><<goto "KT-6">><</button>>
 </main>
-
 
 <<timed 5s>>
 	<<replace ".textholder">>
     Form up Tour Guides!
+    
+    <<button ">">><<goto "KT-6">><</button>>
+    
     <</replace>>
 <</timed>>
 
 
 :: KT-6 {"position":"300,725","size":"100,100"}
 <<audio ":all" stop>>
-
-<main>
-TEAMS PREPARE
-​
-What is your name?​
-
-What is your favourite colour?​
-
-What is your favourite game?​
-
-How do you feel about going to Year 1?​
+<main><h1>TEAMS PREPARE</h1>What is your name?
+What is your favourite colour?
+What is your favourite game?
+How do you feel about going to Year 1?
 
 <<button ">">><<goto "KT-7">><</button>>
 </main>
 
 
 :: KT-7 {"position":"300,850","size":"100,100"}
-<<audio ":all" stop>>
-
-<main>
-GET READY TO GO ON TOUR​
+<<audio ":all" stop>><main class="flex-center-container">
+<h1>GET READY TO GO ON TOUR</h1>
 
 <<button "WHEN THE TOUR IS COMPLETE CLICK HERE">><<goto "KT-8">><</button>>
 </main>
 
 
 :: KT-8 {"position":"300,975","size":"100,100"}
-<<audio ":all" stop>><<audio "Tour5" play>>
-
-<main>
-THIS IS THE END OF OUR TOUR TOGETHER RECEPTION​
-
-BUT IT ISN’T GOODBYE​
-
-BECAUSE WE’LL SEE YOU NEXT YEAR​
-
-WHEN YOU’LL BE IN YEAR 1 AND WE’LL BE IN YEAR 6​
-
-WE HOPE YOU ENJOYED THE TOUR​
-
-REMEMBER YOU CAN ALWAYS SAY HELLO.​
-
+<<audio ":all" stop>><<audio "Tour5" play>><main class="flex-center-container spaced">
+THIS IS THE END OF OUR TOUR TOGETHER RECEPTION
+BUT IT ISN’T GOODBYE
+BECAUSE WE’LL SEE YOU NEXT YEAR
+WHEN YOU’LL BE IN YEAR 1 AND WE’LL BE IN YEAR 6
+WE HOPE YOU ENJOYED THE TOUR
+REMEMBER YOU CAN ALWAYS SAY HELLO.
 UNTIL NEXT TIME
 </main>
 
